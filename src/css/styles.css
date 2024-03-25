@@ -23,3 +23,51 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.container{
+  max-width: 1160px;
+  padding: 0 16px;
+  margin: auto;
+}
+.form{
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 36px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.input-form{
+  width: 272px;
+  height: 25px;
+  border-radius: 8px;
+  border-color: #808080;
+  padding: 8px 16px;
+  margin-right: 8px;
+}
+.input-form::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #808080;
+}
+.input-form:placeholder-shown {
+  outline: none;
+}
+.btn-submit{
+  width: 91px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background: #4e75ff;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  
+}
+
