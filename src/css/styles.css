@@ -70,14 +70,12 @@
   color: #fff;
   
 }
-.is-hidden{
-  display: none;
+.btn-submit:hover{
+ background: #6C8CFF;
 }
 
 .gallery {
   padding-left: 0;
-  margin-top: 0px;
-  margin-bottom: 0;
   padding-top: 32px;
   list-style-type: none;
   width: 1128px;
@@ -96,10 +94,6 @@
   justify-content: space-around;
   text-align: center;
   border: 1px solid #808080;
-  
-}
-
-.image-item{
   
 }
 

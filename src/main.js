@@ -17,11 +17,10 @@ const lightbox = new SimpleLightbox('.gallery a', {
  
 inputForm.addEventListener('submit', event => {
     event.preventDefault();
-    imageGallery.innerHTML = '';
-    const query = event.target.elements.image.value;
+    const query = event.target.elements.image.value.trim();
+    imageGallery.innerHTML = '<div class="loader"></div>';
     if (query) {
-        imagePreload.classList.remove('.is-hidden');
-        getImages(query).then(image => {
+            getImages(query).then(image => {
             if (!image.hits.length) {
                 iziToast.error({
                     position: 'topRight',
@@ -34,7 +33,6 @@ inputForm.addEventListener('submit', event => {
             }
             const markup = imageTemplate(image.hits);
             imageGallery.innerHTML = markup;
-            imagePreload.classList.add('.is-hidden');
             lightbox.refresh();
         })
             .catch(error =>
