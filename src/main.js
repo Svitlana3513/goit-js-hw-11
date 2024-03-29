@@ -41,8 +41,8 @@ inputForm.addEventListener('submit', event => {
                 });
             }
             const markup = imageTemplate(image.hits); 
-                imageGallery.insertAdjacentElement('afterbegin', markup);
-                hideLoader();
+            imageGallery.insertAdjacentHTML('afterbegin',markup);
+            hideLoader();
             lightbox.refresh();
         })
             .catch(error =>
