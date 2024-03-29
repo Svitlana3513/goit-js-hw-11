@@ -14,13 +14,22 @@ const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250,
 });
+
+function showLoader() {
+    imagePreload.classList.remove('is-hidden');
+}
+function hideLoader() {
+    imagePreload.classList.add('is-hidden');
+}
  
 inputForm.addEventListener('submit', event => {
     event.preventDefault();
+    imageGallery.innerHTML = '';
     const query = event.target.elements.image.value.trim();
-    imageGallery.innerHTML = '<div class="loader"></div>';
     if (query) {
-            getImages(query).then(image => {
+        showLoader();
+        getImages(query)
+            .then(image => {
             if (!image.hits.length) {
                 iziToast.error({
                     position: 'topRight',
@@ -31,14 +40,14 @@ inputForm.addEventListener('submit', event => {
                     message: 'Sorry, there are no images matching your search query. Please try again!',
                 });
             }
-            const markup = imageTemplate(image.hits);
-            imageGallery.innerHTML = markup;
+            const markup = imageTemplate(image.hits); 
+                imageGallery.insertAdjacentElement('afterbegin', markup);
+                hideLoader();
             lightbox.refresh();
         })
             .catch(error =>
                 console.log(error));
-    } else {
-        iziToast.error({
+                iziToast.error({
                     position: 'topRight',
                     color: '#EF4040',
                     messageColor: '#FAFAFB',
@@ -46,8 +55,8 @@ inputForm.addEventListener('submit', event => {
                     height: '88',
                     message: 'Please, fill the form!',
                 });
-        
-    }
+       
+    } 
     inputForm.reset();
     })
 
